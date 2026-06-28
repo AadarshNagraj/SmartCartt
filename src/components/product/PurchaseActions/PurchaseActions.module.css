@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+.mainActions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+.addBtn, .buyBtn {
+  width: 100%;
+  height: 56px; /* Larger, premium touch target */
+}
+
+.secondaryActions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  margin-top: var(--space-2);
+}
+
+.iconBtn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: transparent;
+  border: none;
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.iconBtn:hover {
+  color: var(--color-text);
+}
+
+.wishlisted {
+  color: var(--color-danger);
+}
+
+.wishlisted:hover {
+  color: var(--color-danger);
+}

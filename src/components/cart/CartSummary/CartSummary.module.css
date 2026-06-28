@@ -1,0 +1,123 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: var(--space-6);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+}
+
+.couponSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.couponInputWrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 44px;
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color var(--transition-fast);
+}
+
+.couponInputWrapper:focus-within {
+  border-color: var(--color-primary);
+}
+
+.couponIcon {
+  position: absolute;
+  left: var(--space-3);
+  color: var(--color-text-secondary);
+}
+
+.couponInput {
+  flex: 1;
+  height: 100%;
+  background: transparent;
+  border: none;
+  padding-left: var(--space-10);
+  padding-right: var(--space-3);
+  font-size: 0.875rem;
+  color: var(--color-text);
+  outline: none;
+}
+
+.couponInput:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.couponBtn {
+  height: 100%;
+  padding: 0 var(--space-4);
+  background-color: var(--color-border);
+  border: none;
+  color: var(--color-text);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background-color var(--transition-fast);
+  cursor: pointer;
+}
+
+.couponBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.totalsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.label {
+  color: var(--color-text-secondary);
+}
+
+.value {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.divider {
+  height: 1px;
+  background-color: var(--color-border);
+  margin: var(--space-2) 0;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.totalLabel {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.totalValue {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.checkoutNote {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin: 0;
+}

@@ -1,0 +1,24 @@
+:root {
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 300ms ease-in-out;
+  --transition-slow: 500ms ease-in-out;
+}
+
+/* Base Hover Effects & Transitions */
+.hover-fade {
+  transition: opacity var(--transition-fast);
+}
+
+.hover-fade:hover {
+  opacity: 0.8;
+}
+
+/* Utilities for simple CSS animations (Framer Motion handles the rest) */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn var(--transition-normal) forwards;
+}

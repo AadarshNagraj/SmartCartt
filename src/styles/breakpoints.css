@@ -1,0 +1,18 @@
+/* Custom media queries can be used with PostCSS or just referenced for standards */
+/* We will define standard container variables here */
+:root {
+  --container-width: 1280px;
+  --container-padding: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --container-padding: var(--space-8);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --container-padding: var(--space-12);
+  }
+}

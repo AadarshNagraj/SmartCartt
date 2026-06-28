@@ -1,0 +1,48 @@
+.grid {
+  display: grid;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+/* Base mobile grid: defaults to 2 columns if space allows, otherwise 1. 
+   Our designs suggest 1 or 2 on mobile. Let's do 2 if small, 1 if very small. */
+@media (max-width: 479px) {
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (min-width: 480px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablet and up: strictly follow the layout switcher intent */
+@media (min-width: 768px) {
+  .grid {
+    gap: var(--space-6);
+  }
+  
+  .cols2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .cols3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .cols4 {
+    grid-template-columns: repeat(3, 1fr); /* Cap at 3 for tablet */
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    gap: var(--space-8);
+  }
+  
+  .cols4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

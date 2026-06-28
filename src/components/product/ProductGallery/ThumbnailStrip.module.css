@@ -1,0 +1,37 @@
+.strip {
+  display: flex;
+  gap: var(--space-4);
+  overflow-x: auto;
+  padding-bottom: var(--space-2);
+  scrollbar-width: none; /* Hide scrollbar Firefox */
+}
+
+.strip::-webkit-scrollbar {
+  display: none; /* Hide scrollbar Chrome/Safari */
+}
+
+.thumbnailBtn {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 2px solid transparent;
+  background-color: var(--color-surface);
+  transition: all var(--transition-fast);
+  opacity: 0.6;
+}
+
+.thumbnailBtn:hover {
+  opacity: 1;
+}
+
+.active {
+  opacity: 1;
+  border-color: var(--color-primary);
+}
+
+.image {
+  object-fit: cover;
+}

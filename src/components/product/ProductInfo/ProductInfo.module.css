@@ -1,0 +1,98 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-8);
+}
+
+.brandRating {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-2);
+}
+
+.brand {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-secondary);
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.star {
+  color: var(--color-accent);
+}
+
+.ratingValue {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-left: 2px;
+}
+
+.reviewCount {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  text-decoration: underline;
+  text-decoration-color: var(--color-border);
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.title {
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+  line-height: 1.1;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-6);
+}
+
+.priceContainer {
+  margin-bottom: var(--space-4);
+  min-height: 40px; /* Prevent layout shift during animation */
+}
+
+.priceBlock {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.comparePrice {
+  font-size: 1.125rem;
+  color: var(--color-text-secondary);
+  text-decoration: line-through;
+}
+
+.stockStatus {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.inStock {
+  color: var(--color-success);
+}
+
+.outOfStock {
+  color: var(--color-danger);
+}

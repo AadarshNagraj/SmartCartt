@@ -1,0 +1,48 @@
+.announcement {
+  height: var(--announcement-height);
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 50;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.messageWrapper {
+  overflow: hidden;
+  height: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.message {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.closeBtn {
+  position: absolute;
+  right: var(--container-padding);
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition-fast);
+}
+
+.closeBtn:hover {
+  color: var(--color-surface);
+}

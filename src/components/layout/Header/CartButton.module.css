@@ -1,0 +1,36 @@
+.cartBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  padding: var(--space-2);
+  transition: color var(--transition-fast);
+}
+
+.cartBtn:hover {
+  color: var(--color-primary);
+}
+
+.badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+  font-size: 0.625rem;
+  font-weight: 600;
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-surface);
+  transform: translate(25%, -25%);
+  overflow: hidden;
+}
+
+.badgeText {
+  display: inline-block;
+}

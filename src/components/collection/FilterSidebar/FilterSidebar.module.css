@@ -1,0 +1,44 @@
+.sidebar {
+  display: none; /* Hidden on mobile by default */
+  width: 260px;
+  flex-shrink: 0;
+  position: sticky;
+  top: calc(var(--header-height) + 120px); /* Adjust to stick below header and toolbar */
+  max-height: calc(100vh - var(--header-height) - 140px);
+  overflow-y: auto;
+  padding-right: var(--space-4);
+  /* Custom scrollbar for sidebar */
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+
+@media (min-width: 1024px) {
+  .sidebar {
+    display: block;
+  }
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: var(--color-border);
+  border-radius: var(--radius-full);
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: var(--space-6);
+  color: var(--color-text);
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+}
