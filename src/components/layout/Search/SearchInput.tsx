@@ -6,7 +6,7 @@ import { useSearch } from './SearchProvider';
 import styles from './SearchInput.module.css';
 
 export function SearchInput() {
-  const { searchQuery, setSearchQuery, openSearch, isOpen, closeSearch } = useSearch();
+  const { searchQuery, setSearchQuery, openSearch, closeSearch } = useSearch();
 
   return (
     <div className={styles.container}>

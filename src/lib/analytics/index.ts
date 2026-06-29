@@ -54,7 +54,7 @@ export const trackViewItemList = (collectionTitle: string, products: ProductMode
 };
 
 export const trackAddToCart = (variant: unknown, quantity: number) => {
-  const v = variant as any;
+  const v = variant as { id?: string; title?: string; price?: { amount?: string; currencyCode?: string }; product?: { title?: string; priceRange?: { minVariantPrice?: { amount?: string } } } };
   const price = v.price?.amount || v.product?.priceRange?.minVariantPrice?.amount || "0";
   const currency = v.price?.currencyCode || "USD";
   

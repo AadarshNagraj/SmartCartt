@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { ChevronRight } from 'lucide-react';
-import { PredictiveSearchResult, PredictiveSearchProduct } from '@/lib/types/search';
+import { PredictiveSearchResult } from '@/lib/types/search';
 import { SearchSkeleton } from './SearchSkeleton';
 import { SearchEmptyState } from './SearchEmptyState';
 import styles from './SearchResults.module.css';
@@ -18,6 +18,7 @@ interface SearchResultsProps {
 
 export function SearchResults({ results, isLoading, query, onSelect }: SearchResultsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  // activeIndex tracks keyboard-focused result item; used in aria-activedescendant
   const [activeIndex, setActiveIndex] = useState(-1);
   const [focusableItems, setFocusableItems] = useState<HTMLButtonElement[]>([]);
 
@@ -25,7 +26,6 @@ export function SearchResults({ results, isLoading, query, onSelect }: SearchRes
     if (!isLoading && containerRef.current) {
       const items = Array.from(containerRef.current.querySelectorAll(`button.${styles.resultItem}`)) as HTMLButtonElement[];
       setFocusableItems(items);
-      setActiveIndex(-1);
     }
   }, [results, isLoading]);
 
@@ -113,7 +113,11 @@ export function SearchResults({ results, isLoading, query, onSelect }: SearchRes
   };
 
   return (
-    <div className={styles.container} ref={containerRef}>
+      <div
+        className={styles.container}
+        ref={containerRef}
+        aria-activedescendant={activeIndex >= 0 ? `search-result-${activeIndex}` : undefined}
+      >
       {results.products.length > 0 && (
         <div className={styles.group}>
           <h3 className={styles.groupTitle}>Products</h3>

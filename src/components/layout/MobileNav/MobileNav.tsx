@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Home, Grid, Heart, Tag, User, Menu } from 'lucide-react';
+import { Home, Grid, Heart, User, Menu } from 'lucide-react';
 import { MobileDrawer } from './MobileDrawer';
 import styles from './MobileNav.module.css';
 

@@ -41,7 +41,7 @@ export function useRecentSearches() {
     setRecentSearches([]);
     try {
       localStorage.removeItem(RECENT_SEARCHES_KEY);
-    } catch (e) {
+    } catch (_e) {
       // Ignore
     }
   }, []);

@@ -33,7 +33,7 @@ export function SearchProvider({ children }: { children: React.ReactNode }) {
       // CMD+K (Mac) or Ctrl+K (Windows)
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
-        isOpen ? closeSearch() : openSearch();
+        if (isOpen) { closeSearch(); } else { openSearch(); }
       }
       
       // "/" shortcut when not in an input

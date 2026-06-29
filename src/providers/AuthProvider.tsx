@@ -31,7 +31,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           setStatus(currentSession.status);
           setIsLoading(false);
         }
-      } catch (error) {
+      } catch (_error) {
         if (mounted) {
           setStatus('guest');
           setIsLoading(false);

@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button/Button';
 import styles from './Hero.module.css';

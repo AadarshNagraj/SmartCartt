@@ -33,9 +33,11 @@ export function Recommendations({ title, products }: RecommendationsProps) {
 
   useEffect(() => {
     if (!emblaApi) return;
-    onSelect();
+    // Call once after registration to sync initial state via subscribed handler
     emblaApi.on('select', onSelect);
     emblaApi.on('reInit', onSelect);
+    // Trigger immediately via the event system rather than directly in effect body
+    emblaApi.emit('select');
   }, [emblaApi, onSelect]);
 
   return (

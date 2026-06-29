@@ -22,14 +22,14 @@ export class SessionRepository {
         
         return session;
       }
-    } catch (e) {
+    } catch (_e) {
       console.warn("Failed to parse session from storage");
     }
     
     return { status: 'guest' };
   }
 
-  async login(email: string, password?: string): Promise<SessionModel> {
+  async login(email: string, _password?: string): Promise<SessionModel> {
     await new Promise(resolve => setTimeout(resolve, 800));
 
     // Mock customer data
@@ -62,6 +62,6 @@ export class SessionRepository {
   private clearSession() {
     try {
       localStorage.removeItem(this.STORAGE_KEY);
-    } catch (e) {}
+    } catch (_e) {}
   }
 }

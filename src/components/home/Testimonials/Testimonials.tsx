@@ -24,7 +24,7 @@ export function Testimonials() {
                   />
                 ))}
               </div>
-              <p className={styles.text}>"{testimonial.text}"</p>
+              <p className={styles.text}>&ldquo;{testimonial.text}&rdquo;</p>
               <div className={styles.author}>
                 <span className={styles.name}>{testimonial.name}</span>
                 <span className={styles.role}>{testimonial.role}</span>

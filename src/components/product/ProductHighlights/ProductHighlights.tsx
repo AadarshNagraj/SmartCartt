@@ -29,7 +29,7 @@ export function ProductHighlights() {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.sectionTitle}>Why you'll love it</h2>
+        <h2 className={styles.sectionTitle}>Why you&apos;ll love it</h2>
         
         <div className={styles.grid}>
           {highlights.map((item, index) => {

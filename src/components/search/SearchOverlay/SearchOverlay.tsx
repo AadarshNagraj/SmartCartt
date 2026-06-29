@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useTransition } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSearch } from '../SearchProvider';
 import { SearchInput } from '../SearchInput/SearchInput';
@@ -29,12 +29,14 @@ export function SearchOverlay() {
     return () => clearTimeout(timer);
   }, [query]);
 
+  const [, startFetchTransition] = useTransition();
+
   // Fetch results when debounced query changes
   useEffect(() => {
     let isMounted = true;
     
     if (debouncedQuery.trim().length > 0) {
-      setIsLoading(true);
+      startFetchTransition(() => { setIsLoading(true); });
       fetchPredictiveSearch(debouncedQuery).then(res => {
         if (isMounted) {
           setResults(res);
@@ -49,18 +51,18 @@ export function SearchOverlay() {
     return () => { isMounted = false; };
   }, [debouncedQuery]);
 
-  // Lock body scroll when open
+  // Lock body scroll when open; reset query via event handler not effect state
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
-      setQuery(''); // Reset query on close
     }
     return () => { document.body.style.overflow = ''; };
   }, [isOpen]);
 
   const handleClose = () => {
+    setQuery(''); // Reset query when user explicitly closes
     closeSearch();
   };
 
