@@ -39,3 +39,17 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# shadcn/ui config (not used in Vanilla CSS architecture)
+components.json
+
+# postcss / tailwind config (project uses Vanilla CSS Modules only)
+postcss.config.js
+postcss.config.cjs
+postcss.config.mjs
+tailwind.config.js
+tailwind.config.ts
+tailwind.config.cjs
+
+# accidental public/node_modules
+public/node_modules
