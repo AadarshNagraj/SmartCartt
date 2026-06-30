@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Heart, User } from 'lucide-react';
 import { clsx } from 'clsx';
 import { mainNavigation } from '@/lib/constants/navigation';
@@ -16,17 +17,23 @@ export function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <header className={clsx(styles.header, isScrolled && styles.scrolled)}>
       <div className={styles.container}>
-        {/* Logo */}
-        <Link href="/" className={styles.logo} aria-label="SmartCart Home">
-          {/* We'll use text as placeholder until next/image with actual logo is ready */}
-          <span className={styles.logoText}>SmartCart</span>
+        {/* Official SmartCart Logo */}
+        <Link href="/" className={styles.logo} aria-label="SmartCart — Shop Smart. Live Better.">
+          <Image
+            src="/logo.svg"
+            alt="SmartCart"
+            width={160}
+            height={44}
+            priority
+            className={styles.logoImage}
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -47,13 +54,13 @@ export function Header() {
           <SearchTrigger />
         </div>
 
-        {/* Icons */}
+        {/* Action Icons */}
         <div className={styles.actions}>
           <Link href="/wishlist" className={styles.iconBtn} aria-label="Wishlist">
-            <Heart size={24} strokeWidth={1.5} />
+            <Heart size={22} strokeWidth={1.5} />
           </Link>
           <Link href="/account" className={styles.iconBtn} aria-label="Account">
-            <User size={24} strokeWidth={1.5} />
+            <User size={22} strokeWidth={1.5} />
           </Link>
           <CartButton />
         </div>

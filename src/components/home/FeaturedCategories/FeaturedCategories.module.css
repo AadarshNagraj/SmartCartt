@@ -9,63 +9,120 @@
   padding-inline: var(--container-padding);
 }
 
+/* Header row */
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+  gap: var(--space-4);
 }
 
 .title {
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-size: clamp(1.4rem, 3vw, 2rem);
   color: var(--color-text);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
+  font-weight: 700;
 }
 
+.viewAll {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #F5A623;
+  letter-spacing: 0.01em;
+  transition: opacity var(--transition-fast), gap var(--transition-fast);
+  white-space: nowrap;
+}
+
+.viewAll:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* Category grid — 3 on mobile, 6 on desktop */
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-4);
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-6);
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--space-4);
   }
 }
 
+/* Individual category card */
 .card {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
   align-items: center;
+  gap: var(--space-3);
   cursor: pointer;
+  text-decoration: none;
+  group: true;
 }
 
+/* Image wrapper — square aspect */
 .imageWrapper {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  background-color: var(--color-background);
+  background-color: #f5f5f5;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-normal), transform var(--transition-fast);
+}
+
+.card:hover .imageWrapper {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
 }
 
 .image {
   object-fit: cover;
-  transition: transform var(--transition-slow);
+  transition: transform 0.5s ease;
 }
 
 .card:hover .image {
-  transform: scale(1.05);
+  transform: scale(1.07);
+}
+
+/* Subtle gradient overlay on image */
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.15) 100%);
+  pointer-events: none;
+}
+
+/* Card text */
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-align: center;
 }
 
 .cardTitle {
   font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-weight: 500;
+  font-size: 0.85rem;
+  font-weight: 700;
   color: var(--color-text);
   transition: color var(--transition-fast);
+  letter-spacing: 0.01em;
 }
 
 .card:hover .cardTitle {
-  color: var(--color-accent);
+  color: #F5A623;
+}
+
+.cardBadge {
+  font-size: 0.7rem;
+  color: var(--color-text-secondary);
+  font-weight: 400;
 }
